@@ -22,8 +22,12 @@ public class MediumController {
 
     @PostMapping
     public ResponseEntity<String> saveAll(@RequestBody List<Medium> mediumList) {
-        service.saveAll(mediumList);
-        return ResponseEntity.badRequest().body("Something went wrong!");
+        try {
+            service.saveAll(mediumList);
+            return ResponseEntity.ok().body("Mediums were saved!");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Something went wrong!");
+        }
     }
 
     @GetMapping

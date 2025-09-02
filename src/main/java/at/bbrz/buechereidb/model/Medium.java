@@ -36,12 +36,13 @@ public abstract class Medium {
     private String zustand;
 
 
-    @Transient // don’t persist JSON’s "type"
+    @Transient
     private String type;
 
     @PrePersist
     @PreUpdate
+    @PostLoad
     public void setTypeAutomatically() {
-        this.type = this.getClass().getSimpleName(); // e.g. "Buch", "Magazin"
+        this.type = this.getClass().getSimpleName();
     }
 }
