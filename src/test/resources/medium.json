@@ -1,0 +1,14 @@
+[ {
+  "title" : "Der Herr der Ringe",
+  "genre" : "HORROR",
+  "ausgeliehen" : false,
+  "zustand" : "LEICHT_GEBRAUCHT",
+  "type" : "Buch",
+  "isbn" : "978-3608939812",
+  "seiten" : 1216,
+  "klappenText" : "Ein episches Fantasy-Abenteuer",
+  "author" : {
+    "name" : "J.R.R. Tolkien"
+  },
+  "inventarNr" : "B001"
+} ]

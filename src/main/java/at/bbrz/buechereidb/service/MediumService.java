@@ -2,6 +2,7 @@ package at.bbrz.buechereidb.service;
 
 import at.bbrz.buechereidb.model.*;
 import at.bbrz.buechereidb.repository.*;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,4 +46,21 @@ public class MediumService {
 
         return allMedia;
     }
+
+    public Medium getByInventarnummer(String inventarNr) {
+        Buch buch = buchRepository.findByInventarNr(inventarNr);
+        if (buch != null) return buch;
+
+        DVD dvd = dvdRepository.findByInventarNr(inventarNr);
+        if (dvd != null) return dvd;
+
+        Magazin magazin = magazinRepository.findByInventarNr(inventarNr);
+        if (magazin != null) return magazin;
+
+        Schallplatte schallplatte = schallplatteRepository.findByInventarNr(inventarNr);
+        if (schallplatte != null) return schallplatte;
+
+        throw new EntityNotFoundException();
+    }
+
 }

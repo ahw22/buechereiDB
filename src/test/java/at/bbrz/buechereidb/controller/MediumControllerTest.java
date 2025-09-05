@@ -38,17 +38,10 @@ class MediumControllerTest {
 
     String jsonData;
 
-    @BeforeEach
-    void setUp() {
-        try {
-            jsonData = Files.readString(new ClassPathResource("mediums.json").getFile().toPath());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     @Test
-    void saveAll_shouldReturnSuccess() throws Exception {
+    void saveAll_ListOfMediumsShouldReturnSuccess() throws Exception {
+        jsonData = Files.readString(new ClassPathResource("mediums.json").getFile().toPath());
         List<Medium> media = objectMapper.readValue(jsonData, new TypeReference<List<Medium>>() {});
 
         Mockito.doNothing().when(service).saveAll(media);
@@ -58,5 +51,19 @@ class MediumControllerTest {
                         .content(jsonData))
                 .andExpect(status().isOk())
                 .andExpect(content().string("4 Mediums were saved!"));
+    }
+
+    @Test
+    void saveAll_ListOfOneShouldReturnSuccess() throws Exception {
+        jsonData = Files.readString(new ClassPathResource("medium.json").getFile().toPath());
+        List<Medium> media = objectMapper.readValue(jsonData, new TypeReference<List<Medium>>() {});
+
+        Mockito.doNothing().when(service).saveAll(media);
+
+        mockMvc.perform(post("/api/v1/")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonData))
+                .andExpect(status().isOk())
+                .andExpect(content().string("1 Mediums were saved!"));
     }
 }

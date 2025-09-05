@@ -38,4 +38,13 @@ public class MediumController {
         }
     }
 
+    @GetMapping("/inventarnummer/{inventarNr}")
+    public ResponseEntity<String> fetchByInventarnummer(@PathVariable String inventarNr) {
+        try {
+            return ResponseEntity.ok().body(objectMapper.writeValueAsString(service.getByInventarnummer(inventarNr)));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("No matching medium found!");
+        }
+    }
+
 }
