@@ -32,8 +32,7 @@ public class MediumController {
     @GetMapping
     public ResponseEntity<String> fetchAll() {
         try {
-            ResponseEntity<String> responseEntity = ResponseEntity.ok().body(objectMapper.writeValueAsString(service.fetchAll()));
-            return responseEntity;
+            return ResponseEntity.ok().body(objectMapper.writeValueAsString(service.fetchAll()));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Something went wrong!" + e.getMessage());
         }
