@@ -1,0 +1,44 @@
+[ {
+  "title" : "Der Herr der Ringe",
+  "genre" : "HORROR",
+  "ausgeliehen" : false,
+  "zustand" : "LEICHT_GEBRAUCHT",
+  "type" : "Buch",
+  "isbn" : "978-3608939812",
+  "seiten" : 1216,
+  "klappenText" : "Ein episches Fantasy-Abenteuer",
+  "author" : {
+    "name" : "J.R.R. Tolkien"
+  },
+  "inventarNr" : "B001"
+}, {
+  "title" : "Inception",
+  "genre" : "SCIFI",
+  "ausgeliehen" : false,
+  "zustand" : "NEU",
+  "type" : "DVD",
+  "spielDauer" : 148,
+  "teile" : 1,
+  "regiseur" : "Christopher Nolan",
+  "fsk" : "FSK_12",
+  "inventarNr" : "D001"
+}, {
+  "title" : "Java Magazin 01/2025",
+  "genre" : "IT",
+  "ausgeliehen" : false,
+  "zustand" : "NEU",
+  "type" : "Magazin",
+  "isbn" : "978-35515533333",
+  "seiten" : 82,
+  "redaktion" : "Medien Gmbh",
+  "inventarNr" : "000003"
+}, {
+  "title" : "Four dimensions",
+  "genre" : "CLASSIC",
+  "ausgeliehen" : false,
+  "zustand" : "NEU",
+  "type" : "Schallplatte",
+  "spielDauer" : 90,
+  "teile" : 1,
+  "inventarNr" : "S0001"
+} ]

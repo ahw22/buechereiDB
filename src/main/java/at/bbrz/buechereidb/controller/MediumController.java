@@ -24,9 +24,9 @@ public class MediumController {
     public ResponseEntity<String> saveAll(@RequestBody List<Medium> mediumList) {
         try {
             service.saveAll(mediumList);
-            return ResponseEntity.ok().body("Mediums were saved!");
+            return ResponseEntity.ok().body(mediumList.size() + " Mediums were saved!");
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Something went wrong!");
+            return ResponseEntity.badRequest().body("Something went wrong!" + e.getMessage());
         }
     }
 
@@ -35,7 +35,7 @@ public class MediumController {
         try {
             ResponseEntity<String> responseEntity = ResponseEntity.ok().body(objectMapper.writeValueAsString(service.fetchAll()));
             return responseEntity;
-        } catch (JsonProcessingException e) {
+        } catch (Exception e) {
             return ResponseEntity.badRequest().body("Something went wrong!" + e.getMessage());
         }
     }
